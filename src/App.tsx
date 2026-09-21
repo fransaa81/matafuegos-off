@@ -1,0 +1,90 @@
+import { ArrowDownRight, ArrowUpRight, Check, ChevronRight, Flame, Menu, X } from 'lucide-react'
+import { useState } from 'react'
+
+const services = [
+  { number: '01', title: 'Recarga & control', copy: 'Ponemos tu equipo a punto y te avisamos cuándo vuelve a tocar.', tone: 'red' },
+  { number: '02', title: 'Instalación', copy: 'Ubicación, señalización y equipos pensados para tu espacio.', tone: 'yellow' },
+  { number: '03', title: 'Venta directa', copy: 'La protección correcta para casa, comercio, auto o industria.', tone: 'ink' },
+]
+
+const products = [
+  { name: 'ABC 5 kg', type: 'Polvo químico seco', tag: 'El clásico', image: '/images/mata3.png' },
+  { name: 'CO₂ 3.5 kg', type: 'Dióxido de carbono', tag: 'Sin residuo', image: '/images/mata4-sin-fondo.png' },
+  { name: 'ABC 10 kg', type: 'Alta capacidad', tag: 'Para industria', image: '/images/mata5.png' },
+]
+
+function App() {
+  const [menuOpen, setMenuOpen] = useState(false)
+
+  return (
+    <main>
+      <header className="topbar">
+        <a className="brand" href="#inicio" aria-label="Matafuegos OFF inicio">
+          <span className="brand-mark"><Flame size={22} fill="currentColor" /></span>
+          <span>MATAFUEGOS<br /><strong>OFF</strong></span>
+        </a>
+        <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label="Abrir menú">
+          {menuOpen ? <X size={22} /> : <Menu size={22} />}
+        </button>
+        <nav className={menuOpen ? 'nav-links open' : 'nav-links'}>
+          <a href="#servicios" onClick={() => setMenuOpen(false)}>Servicios</a>
+          <a href="#equipos" onClick={() => setMenuOpen(false)}>Equipos</a>
+          <a href="#nosotros" onClick={() => setMenuOpen(false)}>Nosotros</a>
+          <a className="nav-cta" href="#contacto" onClick={() => setMenuOpen(false)}>Hablemos <ArrowUpRight size={16} /></a>
+        </nav>
+      </header>
+
+      <section className="hero" id="inicio">
+        <div className="hero-copy">
+          <h1><span className="hero-first-line">La Tranquilidad</span><br /><span className="hero-second-line"><span className="orange-word">TAMBIÉN</span> se Instala.</span></h1>
+          <p className="hero-intro">Matafuegos, recargas y prevención contra incendios para los lugares donde pasa tu vida.</p>
+          <div className="hero-actions">
+            <a className="button button-dark" href="#contacto">Pedí asesoramiento <ArrowUpRight size={18} /></a>
+            <a className="text-link" href="#servicios">Ver cómo trabajamos <ArrowDownRight size={18} /></a>
+          </div>
+        </div>
+        <div className="hero-visual">
+          <img className="hero-image" src="/images/mata2.png" alt="Matafuegos rojo" />
+        </div>
+      </section>
+
+      <section className="manifesto" id="nosotros">
+        <div className="manifesto-content">
+          <h2>Tu Seguridad<br /><span>Importa</span></h2>
+          <p className="manifesto-copy">Nos ocupamos de lo que casi nadie mira hasta que hace falta. Revisamos, instalamos y explicamos para que cada equipo esté listo cuando tiene que estarlo.</p>
+          <div className="proof-row"><div><strong>+15</strong><span>años cuidando<br />espacios</span></div><div><strong>24h</strong><span>respuesta<br />en CABA y GBA</span></div><div><strong>100%</strong><span>equipos<br />certificados</span></div></div>
+        </div>
+      </section>
+
+      <section className="services-section" id="servicios">
+        <div className="services-heading"><h2>Todo en orden.<br /><em>Todo OFF.</em></h2></div>
+        <div className="service-grid">{services.map((service) => <article className={`service-card ${service.tone}`} key={service.number}><span className="service-number">{service.number}</span><div><h3>{service.title}</h3><p>{service.copy}</p></div><ArrowUpRight size={23} /></article>)}</div>
+      </section>
+
+      <section className="products-section" id="equipos">
+        <div className="products-top"><div><h2>Equipos que<br /><em>hacen su trabajo.</em></h2></div></div>
+        <div className="product-grid">{products.map((product) => <article className="product-card" key={product.name}><div className="product-image" style={{ backgroundImage: `url(${product.image})`, backgroundColor: product.name === 'ABC 5 kg' ? '#111212' : undefined, backgroundPosition: product.name === 'ABC 5 kg' ? 'left center' : undefined, backgroundSize: product.name === 'CO₂ 3.5 kg' || product.name === 'ABC 10 kg' ? 'contain' : undefined, backgroundRepeat: product.name === 'CO₂ 3.5 kg' || product.name === 'ABC 10 kg' ? 'no-repeat' : undefined }}><span>{product.tag}</span></div><div className="product-info"><div><h3>{product.name}</h3><p>{product.type}</p></div><ChevronRight size={22} /></div></article>)}</div>
+      </section>
+
+      <section className="contact-section" id="contacto">
+        <div className="contact-content">
+          <h2>¿Lo vemos <em>juntos?</em></h2>
+          <p>Contanos qué necesitás proteger. Te respondemos con una solución concreta, sin letra chica.</p>
+          <a className="button button-red" href="https://wa.me/5491100000000" target="_blank" rel="noreferrer">Escribir por WhatsApp <ArrowUpRight size={18} /></a>
+          <form className="contact-form" onSubmit={(event) => event.preventDefault()}>
+            <label className="form-field">Nombre<input type="text" name="nombre" placeholder="Tu nombre" required /></label>
+            <label className="form-field">Correo electrónico<input type="email" name="email" placeholder="nombre@correo.com" required /></label>
+            <label className="form-field">Teléfono<input type="tel" name="telefono" placeholder="Tu teléfono" /></label>
+            <label className="form-field">Empresa<input type="text" name="empresa" placeholder="Opcional" /></label>
+            <label className="form-field form-field-full">¿Cómo podemos ayudarte?<textarea name="mensaje" rows={4} placeholder="Contanos qué necesitás proteger" required /></label>
+            <button className="button form-submit" type="submit">Enviar consulta <ArrowUpRight size={18} /></button>
+          </form>
+        </div>
+      </section>
+
+      <footer><a className="brand footer-brand" href="#inicio"><span className="brand-mark"><Flame size={18} fill="currentColor" /></span><span>MATAFUEGOS <strong>OFF</strong></span></a><span>Buenos Aires, Argentina</span><a href="mailto:hola@matafuegos-off.com">hola@matafuegos-off.com</a><span>© 2024</span></footer>
+    </main>
+  )
+}
+
+export default App
