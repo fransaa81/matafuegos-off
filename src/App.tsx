@@ -15,6 +15,7 @@ const products = [
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [manifestoExpanded, setManifestoExpanded] = useState(false)
 
   return (
     <main>
@@ -51,7 +52,8 @@ function App() {
       <section className="manifesto" id="nosotros">
         <div className="manifesto-content">
           <h2>Nuestro trabajo es tu tranquilidad</h2>
-          <p className="manifesto-copy">Nos ocupamos de lo que casi nadie mira hasta que hace falta. Revisamos, instalamos y explicamos para que cada equipo esté listo cuando tiene que estarlo.</p>
+          <p className={`manifesto-copy${manifestoExpanded ? ' expanded' : ''}`}>Trabajamos en CABA y GBA con hogares, comercios, industrias, consorcios, oficinas y todo tipo de instalaciones. Asesoramos para que cada ambiente cuente con los equipos adecuados, correctamente ubicados y listos para actuar. Realizamos venta, instalación, recarga, mantenimiento y control periódico de matafuegos, señalización y elementos de prevención contra incendios. Revisamos vencimientos, capacidades y condiciones de uso, y te acompañamos con recomendaciones claras para que cumplas con los requisitos y tengas la tranquilidad de estar protegido todos los días.</p>
+          <button className="manifesto-toggle" type="button" onClick={() => setManifestoExpanded(!manifestoExpanded)} aria-expanded={manifestoExpanded}>{manifestoExpanded ? 'Ver menos' : 'Seguir leyendo'}</button>
         </div>
       </section>
 
