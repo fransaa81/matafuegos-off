@@ -36,8 +36,8 @@ function App() {
 
       <section className="hero" id="inicio">
         <div className="hero-copy">
-          <h1><span className="hero-first-line">La Tranquilidad</span><br /><span className="hero-second-line"><span className="orange-word">TAMBIÉN</span> se Instala.</span></h1>
-          <p className="hero-intro">Matafuegos, recargas y prevención contra incendios para los lugares donde pasa tu vida.</p>
+          <h1><span className="hero-first-line">Tu Seguridad también</span><br /><span className="hero-second-line">es Importante</span></h1>
+          <p className="hero-intro">Matafuegos, recargas y prevención contra incendios para todo tipo de estblecimientos y lugares</p>
           <div className="hero-actions">
             <a className="button button-dark" href="#contacto">Pedí asesoramiento <ArrowUpRight size={18} /></a>
             <a className="text-link" href="#servicios">Ver cómo trabajamos <ArrowDownRight size={18} /></a>
@@ -50,19 +50,18 @@ function App() {
 
       <section className="manifesto" id="nosotros">
         <div className="manifesto-content">
-          <h2>Tu Seguridad<br /><span>Importa</span></h2>
+          <h2>Nuestro trabajo es tu tranquilidad</h2>
           <p className="manifesto-copy">Nos ocupamos de lo que casi nadie mira hasta que hace falta. Revisamos, instalamos y explicamos para que cada equipo esté listo cuando tiene que estarlo.</p>
-          <div className="proof-row"><div><strong>+15</strong><span>años cuidando<br />espacios</span></div><div><strong>24h</strong><span>respuesta<br />en CABA y GBA</span></div><div><strong>100%</strong><span>equipos<br />certificados</span></div></div>
         </div>
       </section>
 
       <section className="services-section" id="servicios">
         <div className="services-heading"><h2>Todo en orden.<br /><em>Todo OFF.</em></h2></div>
-        <div className="service-grid">{services.map((service) => <article className={`service-card ${service.tone}`} key={service.number}><span className="service-number">{service.number}</span><div><h3>{service.title}</h3><p>{service.copy}</p></div><ArrowUpRight size={23} /></article>)}</div>
+        <div className="service-grid">{services.map((service) => <article className={`service-card ${service.tone}`} key={service.number}><div><h3>{service.title}</h3><p>{service.copy}</p></div><ArrowUpRight size={23} /></article>)}</div>
       </section>
 
       <section className="products-section" id="equipos">
-        <div className="products-top"><div><h2>Equipos que<br /><em>hacen su trabajo.</em></h2></div></div>
+        <div className="products-top"><div><h2>Equipos</h2></div></div>
         <div className="product-grid">{products.map((product) => <article className="product-card" key={product.name}><div className="product-image" style={{ backgroundImage: `url(${product.image})`, backgroundColor: product.name === 'ABC 5 kg' ? '#111212' : undefined, backgroundPosition: product.name === 'ABC 5 kg' ? 'left center' : undefined, backgroundSize: product.name === 'CO₂ 3.5 kg' || product.name === 'ABC 10 kg' ? 'contain' : undefined, backgroundRepeat: product.name === 'CO₂ 3.5 kg' || product.name === 'ABC 10 kg' ? 'no-repeat' : undefined }}><span>{product.tag}</span></div><div className="product-info"><div><h3>{product.name}</h3><p>{product.type}</p></div><ChevronRight size={22} /></div></article>)}</div>
       </section>
 
