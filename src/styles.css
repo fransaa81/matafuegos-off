@@ -2,8 +2,10 @@
 
 .hero .hero-intro { width: auto; max-width: none; white-space: nowrap; font-size: clamp(11px, .84vw, 14px); }
 .hero h1 { font-size: clamp(38px, 4.7vw, 76px); }
+.accent-word { color: var(--red); }
 body .manifesto h2, body .services-heading h2, body .products-top h2, body .contact-content h2 { font-size: clamp(28px, 3vw, 46px); }
 body .manifesto h2::after, body .services-heading h2::after, body .products-top h2::after, body .contact-content h2::after { content: ''; display: block; width: 34px; height: 3px; margin-top: 16px; background: var(--red); }
+body .contact-content h2::after { background: var(--yellow); }
 @media (max-width: 1150px) { .hero .hero-intro { width: min(360px, 90%); white-space: normal; font-size: 14px; } }
 
 :root { --red: #e2382d; --red-dark: #b92019; --orange: #f97316; --yellow: #ffc928; --paper: #f3f0e9; --ink: #111212; --gray: #6c6a63; --line: rgba(17,18,18,.18); }

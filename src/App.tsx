@@ -36,7 +36,7 @@ function App() {
 
       <section className="hero" id="inicio">
         <div className="hero-copy">
-          <h1><span className="hero-first-line">Tu Seguridad también</span><br /><span className="hero-second-line">es Importante</span></h1>
+          <h1><span className="hero-first-line">Tu <span className="accent-word">Seguridad</span> también</span><br /><span className="hero-second-line">es Importante</span></h1>
           <p className="hero-intro">Matafuegos, recargas y prevención contra incendios para todo tipo de estblecimientos y lugares</p>
           <div className="hero-actions">
             <a className="button button-dark" href="#contacto">Pedí asesoramiento <ArrowUpRight size={18} /></a>
@@ -67,8 +67,8 @@ function App() {
 
       <section className="contact-section" id="contacto">
         <div className="contact-content">
-          <h2>¿Lo vemos <em>juntos?</em></h2>
-          <p>Contanos qué necesitás proteger. Te respondemos con una solución concreta, sin letra chica.</p>
+          <h2>Dejanos tu consulta</h2>
+          <p>Contanos qué necesitás proteger. Te respondemos con una solución concreta</p>
           <a className="button button-red" href="https://wa.me/5491100000000" target="_blank" rel="noreferrer">Escribir por WhatsApp <ArrowUpRight size={18} /></a>
           <form className="contact-form" onSubmit={(event) => event.preventDefault()}>
             <label className="form-field">Nombre<input type="text" name="nombre" placeholder="Tu nombre" required /></label>
